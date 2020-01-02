@@ -56,7 +56,8 @@ const styles = StyleSheet.create({
     headerText: {
         fontSize: 16,
         fontWeight: "bold",
-        padding: 4,
+        marginHorizontal: 3,
+        padding: 10,
     },
     title: {
         fontSize: 16,

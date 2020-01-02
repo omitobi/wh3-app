@@ -8,10 +8,10 @@ import {
 const TimeRow = ({item}) => {
     return (
         <TouchableOpacity style={styles.item}>
-            <Text>{item.day}</Text>
-            <Text>{item.start}</Text>
-            <Text>{item.end}</Text>
-            <Text>{item.total}</Text>
+            <Text style={styles.itemText}>{item.day}</Text>
+            <Text style={styles.itemText}>{item.start}</Text>
+            <Text style={styles.itemText}>{item.end}</Text>
+            <Text style={styles.itemText}>{item.total}</Text>
         </TouchableOpacity>
     )
 };
@@ -22,8 +22,13 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: 'space-between',
         marginHorizontal: 3,
-        marginVertical: 4
+        marginVertical: 10,
+        padding: 10,
+        backgroundColor: '#faf9f7',
+    },
+    itemText: {
+        fontSize: 16,
     }
-})
+});
 
 export default TimeRow;

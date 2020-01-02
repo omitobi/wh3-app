@@ -18,7 +18,13 @@ const DATA = [
                 start: '11:10',
                 end: '11:50',
                 total: '00:40'
-            }
+            },
+            {
+                day: 'Mon',
+                start: '11:10',
+                end: '11:50',
+                total: '00:40'
+            },
         ],
     }
 ];

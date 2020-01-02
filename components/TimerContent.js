@@ -12,9 +12,9 @@ const TimerContent = () => {
 const styles = StyleSheet.create({
     counterClock: {
         flex: 3,
-        minWidth: 300,
-        minHeight: 300,
-        borderRadius: 255,
+        minWidth: 200,
+        minHeight: 200,
+        borderRadius: 50,
         backgroundColor: "#7263",
         alignContent: "center",
         justifyContent: "center",
