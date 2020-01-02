@@ -12,17 +12,14 @@ import Constants from 'expo-constants';
 const DATA = [
     {
         title: 'Monday - 2019-12-30',
-        data: ['Mon', '11:10', '11:50', '00:40'],
+        data: [{
+            day: 'Mon',
+            start: '11:10',
+            end: '11:50',
+            total: '00:40'
+        }],
     }
 ];
-
-function Item({title}) {
-    return (
-        <View style={styles.item}>
-            <Text>{title}</Text>
-        </View>
-    );
-}
 
 const Intro = ({navigation}) => {
     return (
@@ -44,20 +41,21 @@ const Intro = ({navigation}) => {
                     keyExtractor={(item, index) => item + index}
                     renderItem={({item}) => {
                         return (
-                            <View style={{flex: 1, flexDirection: "row", justifyContent: 'space-between'}}>
-                                <Text>{item}</Text>
-                                <Text>{item}</Text>
-                                <Text>{item}</Text>
-                                <Text>{item}</Text>
-                            </View>
+                            <TouchableOpacity style={styles.item}>
+                                <Text>{item.day}</Text>
+                                <Text>{item.start}</Text>
+                                <Text>{item.end}</Text>
+                                <Text>{item.total}</Text>
+                            </TouchableOpacity>
                         )
                     }}
                     renderSectionHeader={({section: {title}}) => (
-                        <View style={{flex: 1, flexDirection: "row", justifyContent: 'space-between', minWidth: "100%"}}>
-                            <Text style={styles.header}>Day</Text>
-                            <Text style={styles.header}>Start</Text>
-                            <Text style={styles.header}>Stop</Text>
-                            <Text style={styles.header}>Total</Text>
+                        <View
+                            style={styles.header}>
+                            <Text style={styles.headerText}>Day</Text>
+                            <Text style={styles.headerText}>Start</Text>
+                            <Text style={styles.headerText}>Stop</Text>
+                            <Text style={styles.headerText}>Total</Text>
                         </View>
                     )}
                 />
@@ -124,13 +122,24 @@ const styles = StyleSheet.create({
         // marginTop: Constants.statusBarHeight,
     },
     item: {
-        backgroundColor: "#1232",
-        padding: 2,
-        marginVertical: 4,
-        // minWidth: "100%"
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        marginHorizontal: 3,
+        marginVertical: 4
     },
     header: {
+        flex: 1,
+        flexDirection: "row",
+        justifyContent: 'space-between',
+        minWidth: "100%",
+        borderBottomColor: "grey",
+        borderBottomWidth: 0.5,
+    },
+    headerText: {
         fontSize: 16,
+        fontWeight: "bold",
+        padding: 4,
     },
     title: {
         fontSize: 16,
