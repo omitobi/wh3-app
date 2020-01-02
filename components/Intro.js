@@ -2,22 +2,22 @@ import React from 'react';
 import {
     View,
     Text,
-    SafeAreaView,
     StyleSheet,
     TouchableOpacity,
-    SectionList,
 } from 'react-native';
-import Constants from 'expo-constants';
+import TimeList from "./TimeList";
 
 const DATA = [
     {
         title: 'Monday - 2019-12-30',
-        data: [{
-            day: 'Mon',
-            start: '11:10',
-            end: '11:50',
-            total: '00:40'
-        }],
+        data: [
+            {
+                day: 'Mon',
+                start: '11:10',
+                end: '11:50',
+                total: '00:40'
+            }
+        ],
     }
 ];
 
@@ -35,31 +35,7 @@ const Intro = ({navigation}) => {
                 </TouchableOpacity>
             </View>
 
-            <SafeAreaView style={styles.records}>
-                <SectionList
-                    sections={DATA}
-                    keyExtractor={(item, index) => item + index}
-                    renderItem={({item}) => {
-                        return (
-                            <TouchableOpacity style={styles.item}>
-                                <Text>{item.day}</Text>
-                                <Text>{item.start}</Text>
-                                <Text>{item.end}</Text>
-                                <Text>{item.total}</Text>
-                            </TouchableOpacity>
-                        )
-                    }}
-                    renderSectionHeader={({section: {title}}) => (
-                        <View
-                            style={styles.header}>
-                            <Text style={styles.headerText}>Day</Text>
-                            <Text style={styles.headerText}>Start</Text>
-                            <Text style={styles.headerText}>Stop</Text>
-                            <Text style={styles.headerText}>Total</Text>
-                        </View>
-                    )}
-                />
-            </SafeAreaView>
+            <TimeList data={DATA}/>
         </View>
     );
 };
@@ -112,36 +88,5 @@ const styles = StyleSheet.create({
         fontSize: 18,
         marginHorizontal: 10,
         marginVertical: 10,
-    },
-    records: {
-        flex: 1,
-        alignContent: "center",
-        justifyContent: "center",
-        marginHorizontal: 10,
-        marginTop: 50
-        // marginTop: Constants.statusBarHeight,
-    },
-    item: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        marginHorizontal: 3,
-        marginVertical: 4
-    },
-    header: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        minWidth: "100%",
-        borderBottomColor: "grey",
-        borderBottomWidth: 0.5,
-    },
-    headerText: {
-        fontSize: 16,
-        fontWeight: "bold",
-        padding: 4,
-    },
-    title: {
-        fontSize: 16,
-    },
+    }
 });
