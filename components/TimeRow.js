@@ -21,9 +21,9 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: "row",
         justifyContent: 'space-between',
-        marginHorizontal: 3,
-        marginVertical: 10,
-        padding: 10,
+        marginHorizontal: 2,
+        marginVertical: 8,
+        padding: 5,
         backgroundColor: '#faf9f7',
     },
     itemText: {

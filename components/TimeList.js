@@ -34,16 +34,9 @@ const styles = StyleSheet.create({
         flex: 1,
         alignContent: "center",
         justifyContent: "center",
-        marginHorizontal: 10,
+        // marginHorizontal: 10,
         // marginTop: 50,
         marginTop: Constants.statusBarHeight,
-    },
-    item: {
-        flex: 1,
-        flexDirection: "row",
-        justifyContent: 'space-between',
-        marginHorizontal: 3,
-        marginVertical: 4
     },
     header: {
         flex: 1,
@@ -51,7 +44,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         minWidth: "100%",
         borderBottomColor: "grey",
-        borderBottomWidth: 0.5,
+        borderBottomWidth: 1,
     },
     headerText: {
         fontSize: 16,

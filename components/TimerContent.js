@@ -12,21 +12,14 @@ const TimerContent = () => {
 const styles = StyleSheet.create({
     counterClock: {
         flex: 3,
-        minWidth: 200,
-        minHeight: 200,
-        borderRadius: 50,
-        backgroundColor: "#7263",
-        alignContent: "center",
+        // backgroundColor: "#7263",
         justifyContent: "center",
-        alignSelf: "center",
-        borderColor: "grey",
-        borderWidth: 6,
-        marginTop: 15,
-        marginBottom: 15,
+        // marginTop: 15,
+        // marginBottom: 15,
     },
     counterText: {
         alignSelf: "center",
-        fontSize: 75,
+        fontSize: 80,
     },
 });
 

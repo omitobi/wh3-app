@@ -32,12 +32,14 @@ const DATA = [
 const Intro = ({navigation}) => {
     return (
         <View style={styles.container}>
-            <View style={styles.counter}>
-                <TimerContent />
-                <TimerButton />
-            </View>
+            <View style={styles.sub}>
+                <View style={styles.counter}>
+                    <TimerContent/>
+                    <TimerButton/>
+                </View>
 
-            <TimeList data={DATA}/>
+                <TimeList data={DATA}/>
+            </View>
         </View>
     );
 };
@@ -50,13 +52,29 @@ Intro.navigationOptions = screenProps => ({
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: "#F0F0F0",
+    },
+    sub: {
+        flex: 1,
+        flexDirection: "column",
+        alignSelf: "center",
         alignItems: "center",
         justifyContent: "center",
+        width: "95%",
     },
     counter: {
-        flex: 3,
-        alignItems: "center",
+        flex: 1,
+        flexDirection: "column",
+        alignItems: "stretch",
         justifyContent: "center",
-        // backgroundColor: "red"
+        // alignContent: "center",
+        // alignSelf: "center",
+        backgroundColor: "white",
+        width: "100%",
+        padding: 10,
+        margin: 10,
+        borderRadius: 2,
+        borderWidth: 0.1,
+        borderColor: "grey"
     },
 });

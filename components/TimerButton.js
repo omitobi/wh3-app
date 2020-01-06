@@ -7,7 +7,7 @@ const TimerButton = ({started, toggleTimer}) => {
                           // onPress={() => navigation.navigate('History')}
         >
             <Text style={styles.counterButtonText}>
-                Go to Details
+                Start Timer
             </Text>
         </TouchableOpacity>
     );
@@ -19,14 +19,13 @@ const styles = StyleSheet.create({
         backgroundColor: "#34baeb",
         alignContent: "center",
         justifyContent: "center",
-        minHeight: 40,
-        borderRadius: 10,
-        marginBottom: 20
+        alignItems: "center",
+        // borderRadius: 10,
+
     },
     counterButtonText: {
-        fontSize: 18,
-        marginHorizontal: 10,
-        marginVertical: 10,
+        fontSize: 20,
+        // marginHorizontal: 10,
     }
 });
 
