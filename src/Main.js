@@ -8,6 +8,7 @@ import {createStackNavigator} from 'react-navigation-stack';
 import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom-tabs';
 import {IconButton, Colors} from 'react-native-paper';
 import Profile from "./components/Profile";
+import Statistics from "./components/Statistics";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -51,12 +52,20 @@ const MainBottomNavigator = createMaterialBottomTabNavigator(
                 tabBarIcon: <IconButton icon="history" color={Colors.white} size={16}/>,
             }
         },
-        profile: {
+        Profile: {
             screen: Profile,
             navigationOptions: {
                 title: "Profile",
                 fontWeight: "bold",
                 tabBarIcon: <IconButton icon="account" color={Colors.white} size={16}/>,
+            }
+        },
+        Statistics: {
+            screen: Statistics,
+            navigationOptions: {
+                title: "Statistics",
+                fontWeight: "bold",
+                tabBarIcon: <IconButton icon="trending-up" color={Colors.white} size={16}/>,
             }
         }
     },
