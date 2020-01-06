@@ -5,6 +5,8 @@ import {
     StyleSheet,
     TouchableOpacity,
 } from 'react-native';
+import Constants from 'expo-constants';
+
 import TimeList from "./TimeList";
 import TimerContent from "./TimerContent";
 import TimerButton from "./TimerButton";
@@ -53,6 +55,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: "#F0F0F0",
+        marginTop: Constants.statusBarHeight,
     },
     sub: {
         flex: 1,

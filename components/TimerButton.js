@@ -15,12 +15,15 @@ const TimerButton = ({started, toggleTimer}) => {
 
 const styles = StyleSheet.create({
     counterButton: {
-        flex: 1,
         backgroundColor: "#34baeb",
         alignContent: "center",
         justifyContent: "center",
         alignItems: "center",
+        borderColor: "grey",
+        borderRadius: 2,
+        borderWidth: 0.3,
         // borderRadius: 10,
+        minHeight: 50,
 
     },
     counterButtonText: {
