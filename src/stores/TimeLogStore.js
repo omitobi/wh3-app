@@ -1,19 +1,19 @@
 const TimeLogStore = () => {
     const timeRowsStore = [{
-        day: 'Mon',
-        startTime: '11:10',
-        endTime: '11:50',
-        total: '00:40'
+        day: 'Monday',
+        startTime: '2020-01-06 11:10',
+        endTime: '2020-01-06 11:10',
+        total: 50
     }, {
-        day: 'Mon',
-        startTime: '11:10',
-        endTime: '11:50',
-        total: '00:40'
+        day: 'Monday',
+        startTime: '2020-01-06 11:10',
+        endTime: '2020-01-06 11:10',
+        total: 50
     }, {
-        day: 'Mon',
-        startTime: '11:10',
-        endTime: '11:50',
-        total: '00:40'
+        day: 'Monday',
+        startTime: '2020-01-06 11:10',
+        endTime: '2020-01-06 11:10',
+        total: 50
     }];
     return  timeRowsStore;
     // return JSON.parse(timeRowsStore);
