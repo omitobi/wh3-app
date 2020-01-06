@@ -3,6 +3,7 @@ import {
     Text,
     StyleSheet,
     TouchableOpacity,
+    View
 } from 'react-native';
 import moment from "moment";
 
@@ -35,10 +36,18 @@ const TimeRow = ({item}) => {
 
     return (
         <TouchableOpacity style={styles.item}>
-            <Text style={styles.itemText}>{item.day}</Text>
-            <Text style={styles.itemText}>{getStartTimeString(item.startTime)}</Text>
-            <Text style={styles.itemText}>{getEndTimeString(item.endTime)}</Text>
-            <Text style={styles.itemText}>{getTotalString(item.total)}</Text>
+            <View style={styles.itemTextWrap}>
+                <Text style={styles.itemText}>{item.day}</Text>
+            </View>
+            <View style={styles.itemTextWrap}>
+                <Text style={styles.itemText}>{getStartTimeString(item.startTime)}</Text>
+            </View>
+            <View style={styles.itemTextWrap}>
+                <Text style={styles.itemText}>{getEndTimeString(item.endTime)}</Text>
+            </View>
+            <View style={styles.itemTextWrap}>
+                <Text style={styles.itemText}>{getTotalString(item.total)}</Text>
+            </View>
         </TouchableOpacity>
     )
 };
@@ -55,6 +64,10 @@ const styles = StyleSheet.create({
     },
     itemText: {
         fontSize: 16,
+    },
+    itemTextWrap: {
+        minWidth: 40,
+        alignContent: "flex-start"
     }
 });
 

@@ -1,16 +1,16 @@
 const TimeLogStore = () => {
     const timeRowsStore = [{
-        day: 'Monday',
+        day: 'Mon',
         startTime: '2020-01-06 11:10',
         endTime: '2020-01-06 11:10',
         total: 50
     }, {
-        day: 'Monday',
-        startTime: '2020-01-06 11:10',
-        endTime: '2020-01-06 11:10',
+        day: 'Mon',
+        startTime: '2020-01-06 00:10',
+        endTime: '2020-01-06 00:50',
         total: 50
     }, {
-        day: 'Monday',
+        day: 'Mon',
         startTime: '2020-01-06 11:10',
         endTime: '2020-01-06 11:10',
         total: 50
