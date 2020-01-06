@@ -10,26 +10,8 @@ import Constants from 'expo-constants';
 import TimeList from "./TimeList";
 import TimerContent from "./TimerContent";
 import TimerButton from "./TimerButton";
+import TimeLogStore from "../stores/TimeLogStore";
 
-const DATA = [
-    {
-        title: 'Monday - 2019-12-30',
-        data: [
-            {
-                day: 'Mon',
-                start: '11:10',
-                end: '11:50',
-                total: '00:40'
-            },
-            {
-                day: 'Mon',
-                start: '11:10',
-                end: '11:50',
-                total: '00:40'
-            },
-        ],
-    }
-];
 
 const Intro = ({navigation}) => {
     return (
@@ -37,10 +19,7 @@ const Intro = ({navigation}) => {
             <View style={styles.sub}>
                 <View style={styles.counter}>
                     <TimerContent/>
-                    <TimerButton/>
                 </View>
-
-                <TimeList data={DATA}/>
             </View>
         </View>
     );
@@ -72,12 +51,8 @@ const styles = StyleSheet.create({
         justifyContent: "center",
         // alignContent: "center",
         // alignSelf: "center",
-        backgroundColor: "white",
         width: "100%",
-        padding: 10,
         margin: 10,
-        borderRadius: 2,
-        borderWidth: 0.1,
-        borderColor: "grey"
+
     },
 });

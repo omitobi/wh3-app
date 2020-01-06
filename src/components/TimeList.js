@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
         minWidth: "100%",
         borderBottomColor: "grey",
         borderBottomWidth: 1,
+        backgroundColor: "#F0F0F0",
     },
     headerText: {
         fontSize: 16,
