@@ -5,7 +5,7 @@ import Intro from "./Intro";
 const History = ({navigation}) => {
     return (
         <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-            <Text>Details Screen</Text>
+            <Text>History Screen</Text>
             <Button
                 title="Go to History... again"
                 onPress={() => navigation.push('History')}
