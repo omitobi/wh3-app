@@ -58,7 +58,7 @@ const TimerContent = () => {
             let timeRow = {};
             console.log('Creating new row with ', time.format('YYYY-MM-DD HH:mm'));
             timeRow.id = Math.random() + Math.random();
-            timeRow.day = time.format('ddd');
+            timeRow.day = time.format('D ddd');
             timeRow.startTime = time;
             timeRow.endTime = null;
             timeRow.total = 0;

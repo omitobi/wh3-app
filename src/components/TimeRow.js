@@ -36,18 +36,10 @@ const TimeRow = ({item}) => {
 
     return (
         <TouchableOpacity style={styles.item}>
-            <View style={styles.itemTextWrap}>
                 <Text style={styles.itemText}>{item.day}</Text>
-            </View>
-            <View style={styles.itemTextWrap}>
                 <Text style={styles.itemText}>{getStartTimeString(item.startTime)}</Text>
-            </View>
-            <View style={styles.itemTextWrap}>
                 <Text style={styles.itemText}>{getEndTimeString(item.endTime)}</Text>
-            </View>
-            <View style={styles.itemTextWrap}>
                 <Text style={styles.itemText}>{getTotalString(item.total)}</Text>
-            </View>
         </TouchableOpacity>
     )
 };
@@ -58,16 +50,17 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: 'space-between',
         marginHorizontal: 2,
-        marginVertical: 10,
-        padding: 8,
+        marginVertical: 6,
+        paddingTop: 10,
+        paddingBottom: 10,
         backgroundColor: '#faf9f7',
     },
     itemText: {
+        marginHorizontal: 3,
+        alignSelf: "center",
         fontSize: 16,
-    },
-    itemTextWrap: {
-        minWidth: 40,
-        alignContent: "flex-start"
+        width: 105, //todo.correct this to have even spaces from left and right
+        textAlign: "left",
     }
 });
 
