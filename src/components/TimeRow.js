@@ -48,18 +48,19 @@ const styles = StyleSheet.create({
     item: {
         flex: 1,
         flexDirection: "row",
-        justifyContent: 'space-between',
+        // justifyContent: 'space-between',
         marginHorizontal: 2,
         marginVertical: 6,
         paddingTop: 10,
         paddingBottom: 10,
         backgroundColor: '#faf9f7',
+        minWidth: "100%",
     },
     itemText: {
         marginHorizontal: 3,
         alignSelf: "center",
         fontSize: 16,
-        width: 105, //todo.correct this to have even spaces from left and right
+        width: "27%", //todo.correct this to have even spaces from left and right
         textAlign: "left",
     }
 });

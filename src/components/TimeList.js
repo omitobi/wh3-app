@@ -46,6 +46,8 @@ const styles = StyleSheet.create({
         borderBottomColor: "grey",
         borderBottomWidth: 1,
         backgroundColor: "#F0F0F0",
+        paddingLeft: 10,
+        paddingRight: 10,
     },
     headerText: {
         fontSize: 16,
@@ -53,8 +55,9 @@ const styles = StyleSheet.create({
         marginHorizontal: 3,
         paddingTop: 10,
         paddingBottom: 10,
-        width: 105,
-        textAlign: "left",
+        // width: "27%",
+        letterSpacing: 1,
+        textAlign: "center",
     },
     title: {
         fontSize: 16,
