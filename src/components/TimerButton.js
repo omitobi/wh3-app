@@ -1,15 +1,22 @@
 import React from 'react';
-import {Text, StyleSheet, TouchableOpacity} from "react-native";
+import {Text, StyleSheet, TouchableOpacity, View} from "react-native";
 
 const TimerButton = ({started, toggleTimer}) => {
     return (
-        <TouchableOpacity style={styles.counterButton}
-                          // onPress={() => navigation.navigate('History')}
-        >
-            <Text style={styles.counterButtonText}>
-                Start Timer
-            </Text>
-        </TouchableOpacity>
+        <View>
+            {
+                started
+                    ? <TouchableOpacity style={[styles.counterButton, {backgroundColor: "red",}]} color="secondary"
+                                        onPress={() => toggleTimer('stop')}>
+                        <Text style={[styles.counterButtonText, {color: "white",}]}>Stop Timer</Text>
+                    </TouchableOpacity>
+                    : <TouchableOpacity style={styles.counterButton} color="secondary"
+                                        onPress={() => toggleTimer('start')}>
+                        <Text style={styles.counterButtonText}>Start Timer</Text>
+                    </TouchableOpacity>
+            }
+        </View>
+
     );
 };
 
