@@ -1,15 +1,15 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useReducer} from "react";
 import {Text, StyleSheet, TouchableOpacity, View} from "react-native";
 import moment from "moment";
 import TimeLogStore from "../stores/TimeLogStore";
 import TimerButton from "./TimerButton";
 import CountDown from "./CountDown";
 import TimeList from "./TimeList";
+import {TimeReducer} from "../reducers/TimeReducer";
 
-const getLatestTimeRow = () => {
-    const timeLogs = TimeLogStore();
+const getLatestTimeRow = (timeRows) => {
 
-    const latestTimeRow = timeLogs[0];
+    const latestTimeRow = timeRows[0];
 
     return latestTimeRow ? latestTimeRow : {
         startTime: null,
@@ -26,71 +26,49 @@ const getFirstItemKey = () => {
 };
 
 const TimerContent = () => {
-    const [timeRows, setTimeRows] = useState([]);
+    const [timeRows, dispatch] = useReducer(TimeReducer, [
+        {
+            day: '6 Mon',
+            startTime: '2020-01-15 00:01',
+            endTime: null,
+            total: 0
+        }
+    ]);
     const [action, setAction] = useState(null);
     const [at, setAt] = useState(null);
     const [started, setStarted] = useState(false);
 
     useEffect(() => {
-        const timeRowStore = TimeLogStore();
+        const latestTimeRow = getLatestTimeRow(timeRows);
 
-        if (timeRowStore) {
-            setTimeRows(timeRowStore);
-
-            const latestTimeRow = getLatestTimeRow();
-
-            if (latestTimeRow.startTime && !latestTimeRow.endTime) {
-                const totalSeconds = moment().diff(moment(latestTimeRow.startTime), 'seconds');
-                setAction('start');
-                setStarted(true);
-                setAt(totalSeconds);
-            }
+        if (latestTimeRow.startTime && !latestTimeRow.endTime) {
+            console.log(latestTimeRow);
+            const totalSeconds = moment().diff(moment(latestTimeRow.startTime), 'seconds');
+            setAction('start');
+            setStarted(true);
+            setAt(totalSeconds);
         }
     }, []);
-
-    const addToTimes = (time) => {
-
-        let initialTimeRows = timeRows;
-
-        let latestItem = getFirstItem(timeRows);
-
-        if (latestItem === undefined || latestItem.endTime) {
-            let timeRow = {};
-            console.log('Creating new row with ', time.format('YYYY-MM-DD HH:mm'));
-            timeRow.id = Math.random() + Math.random();
-            timeRow.day = time.format('D ddd');
-            timeRow.startTime = time;
-            timeRow.endTime = null;
-            timeRow.total = 0;
-            initialTimeRows = [timeRow, ...timeRows];
-            setTimeRows(initialTimeRows);
-        }
-
-        if (latestItem && !latestItem.endTime) {
-            console.log("Updating old row with end time", time.format("YYYY-MM-DD HH:mm"));
-            latestItem.endTime = time;
-            latestItem.total = time.diff(latestItem.startTime, "minutes");
-            initialTimeRows[getFirstItemKey()] = latestItem;
-            setTimeRows([...initialTimeRows]);
-        }
-
-        // localStorage.setItem("timeRows", JSON.stringify(initialTimeRows));
-
-        // console.log(JSON.parse(localStorage.getItem("timeRows")));
-    };
 
     const toggle = (action, time) => {
         console.log('We receive a toggle(action, time)', action, time);
 
         setAction(action);
-        addToTimes(moment(time));
 
         if (action === "start") {
+            dispatch({
+                type: 'START_TIME',
+                time: moment(time)
+            });
             setStarted(true);
             setAt(moment().diff(moment(time), 'seconds'));
         }
 
         if (action === "stop") {
+            dispatch({
+                type: 'STOP_TIME',
+                time: moment(time)
+            });
             setStarted(false);
         }
     };
