@@ -9,6 +9,8 @@ import {createMaterialBottomTabNavigator} from 'react-navigation-material-bottom
 import {IconButton, Colors} from 'react-native-paper';
 import Profile from "./components/Profile";
 import Statistics from "./components/Statistics";
+import TimeContextProvider from "./contexts/TimeContext";
+import Constants from "expo-constants";
 
 const instructions = Platform.select({
     ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
@@ -86,7 +88,9 @@ const MainContainer = createAppContainer(MainBottomNavigator);
 class Main extends Component {
     render() {
         return (
-            <MainContainer/>
+            <TimeContextProvider>
+                <MainContainer/>
+            </TimeContextProvider>
         );
     }
 }

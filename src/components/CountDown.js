@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {Text, TouchableOpacity, StyleSheet} from "react-native";
+import {TimeContext} from "../contexts/TimeContext";
 
 const getInitialTimerState = () => {
     return {
@@ -15,12 +16,16 @@ const getInitialTotalSecondState = () => {
 };
 
 const CountDown = ({action, at}) => {
-
+    const {fullTimeString, updateFullTimeString} = useContext(TimeContext);
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
     const [seconds, setSeconds] = useState(0);
     const [timerInterval, setTimerInterval] = useState(0);
     const [totalSecond, setTotalSecond] = useState(getInitialTotalSecondState());
+
+    useEffect(() => {
+        setTotalSecond()
+    }, []);
 
     useEffect(() => {
         const updateTimer = () => {
@@ -81,27 +86,13 @@ const CountDown = ({action, at}) => {
         };
     }, [action, at]);
 
-    const getFullTimeString = () => {
-        let timerString = hour + ":";
-
-        if (minute < 10) {
-            timerString += "0";
-        }
-
-        timerString += minute + ":"
-
-        if (seconds < 10) {
-            timerString += "0";
-        }
-
-        timerString += seconds;
-
-        return timerString;
-    };
+    useEffect(() => {
+        updateFullTimeString(hour, minute, seconds)
+    }, [totalSecond]);
 
     return (
         <TouchableOpacity style={styles.counterClock}>
-            <Text style={styles.counterText}>{getFullTimeString()}</Text>
+            <Text style={styles.counterText}>{fullTimeString}</Text>
         </TouchableOpacity>
     );
 };
