@@ -1,7 +1,6 @@
 import React, {useEffect, useState, useReducer} from "react";
-import {Text, StyleSheet, TouchableOpacity, View} from "react-native";
+import {StyleSheet, View} from "react-native";
 import moment from "moment";
-import TimeLogStore from "../stores/TimeLogStore";
 import TimerButton from "./TimerButton";
 import CountDown from "./CountDown";
 import TimeList from "./TimeList";

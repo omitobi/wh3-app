@@ -1,6 +1,7 @@
-import React, {useState, useEffect, useContext} from 'react';
+import React, {useState, useEffect, useReducer} from 'react';
 import {Text, TouchableOpacity, StyleSheet} from "react-native";
 import {TimeContext} from "../contexts/TimeContext";
+import {CounterReducer} from "../reducers/CounterReducer";
 
 const getInitialTimerState = () => {
     return {
@@ -16,7 +17,7 @@ const getInitialTotalSecondState = () => {
 };
 
 const CountDown = ({action, at}) => {
-    const {fullTimeString, updateFullTimeString} = useContext(TimeContext);
+    const {fullTimeString, dispatch} = useReducer(CounterReducer, '0:00:00');
     const [hour, setHour] = useState(0);
     const [minute, setMinute] = useState(0);
     const [seconds, setSeconds] = useState(0);
@@ -87,8 +88,28 @@ const CountDown = ({action, at}) => {
     }, [action, at]);
 
     useEffect(() => {
-        updateFullTimeString(hour, minute, seconds)
-    }, [totalSecond]);
+        const getFullTimeString = (hour, minute, seconds) => {
+            let timerString = hour + ":";
+
+            if (minute < 10) {
+                timerString += "0";
+            }
+
+            timerString += minute + ":";
+
+            if (seconds < 10) {
+                timerString += "0";
+            }
+
+            timerString += seconds;
+
+            return timerString;
+        };
+
+        dispatch({type: 'UPDATE_COUNTER', counter: getFullTimeString(hour, minute, seconds)});
+
+    }, [fullTimeString]);
+
 
     return (
         <TouchableOpacity style={styles.counterClock}>

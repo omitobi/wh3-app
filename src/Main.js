@@ -88,9 +88,9 @@ const MainContainer = createAppContainer(MainBottomNavigator);
 class Main extends Component {
     render() {
         return (
-            <TimeContextProvider>
+            // <TimeContextProvider>
                 <MainContainer/>
-            </TimeContextProvider>
+            // </TimeContextProvider>
         );
     }
 }

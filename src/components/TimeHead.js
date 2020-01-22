@@ -1,9 +1,10 @@
-import React, { useContext } from 'react';
+import React, { useReducer } from 'react';
 import {Text, View, StyleSheet} from "react-native";
 import {TimeContext} from "../contexts/TimeContext";
+import {CounterReducer} from "../reducers/CounterReducer";
 
 const TimeHead = () => {
-    const {fullTimeString} = useContext(TimeContext);
+    const {fullTimeString, dispatch} = useReducer(CounterReducer, '0:00:00');
     console.log((fullTimeString === "0:00:00"));
 
     return (
